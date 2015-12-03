@@ -42,7 +42,7 @@
         
   </head>
   <body>
-<div class="siteLoadUp"></div>
+
 
 <header>
 
@@ -52,18 +52,18 @@
              </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if (displayName) { %>
-            <% if(title == "Contact" ) { %>
+            <% if(title == "EditUser" ) { %>
             <li class="active">
             <% } else { %>>
             <li>
               <% } %>
-              <a href="users">Contacts</a></li>
-               <% if(title == "Todos" ) { %>
+              <a href="users/editUser">Edit User</a></li>
+               <% if(title == "userSurveys" ) { %>
             <li class="active">
               <% } else { %>
             <li>
               <% } %>
-              <a href="/todolist">Todo List</a></li>
+              <a href="/userSurveys">Your Surveys</a></li>
             <li class="navbar-text">Hello,
               <%= displayName %>
             </li>
