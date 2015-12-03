@@ -1,0 +1,44 @@
+<%- include partials/header.ejs %>
+
+<body>
+<div class="panel-body table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+ <tr>
+                        <th>User Name</th>
+                        <th>Survey Title</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
+						<th>Expiration Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                </tbody>
+                <% for (var i = 0; i < survey.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= survey[i].username%>
+                    </td>
+                    <td>
+                        <%= contact[i].surveyname %>
+                    </td>
+                    <td>
+                        <% var date = new Date(contact[i].created);
+                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
+                        <%= dateString %>
+                    </td>
+					 <td>
+                        <% date = new Date(contact[i].updated);
+                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
+                        <%= dateString %>
+                    </td>
+</tr>
+
+
+
+
+<% } %>
+
+</body>
+
+<%- include partials/footer.ejs %>

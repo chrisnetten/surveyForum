@@ -1,0 +1,51 @@
+var express = require('express');
+var passport = require('passport');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+router.get('login', function(req, res, next) {
+  res.render('login', {
+    title: 'Home', 
+    displayName: req.user ? req.user.displayName : ''
+  })
+});
+
+router.post('/login', passport.authenticate('loginLocal', {
+  successRedirect: '/users',
+  failerRedirect: '/login',
+  failureFlash: true
+}))
+
+/* Show Registration Page */
+router.get('/register', function(req, res, next) {
+  if(!req.user) {
+    res.render('!register', {
+      title: 'Register',
+      message: req.flash('registerMessage'),
+    });
+  }
+  else {
+    return res.redirect('/');
+  }
+});
+
+/* Registration Post Request */
+
+router.post('/register', passport.authenticate('localRegistration', {
+  successRedirect: '/users',
+  failureRedirect: '/register',
+  failerFlash: true
+}))
+
+/* Logout Request */
+
+router.get('/logout', function(req,res) {
+  req.logout();
+  res.redirect('/');
+})
+
+module.exports = router;
