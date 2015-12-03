@@ -31,6 +31,7 @@ router.get('/register', function(req, res, next) {
     res.render('register', {
       title: 'Register',
       message: req.flash('registerMessage'),
+      displayName: req.user ? req.user.displayName : ''
     });
   }
   else {
