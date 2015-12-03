@@ -6,8 +6,9 @@ var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { 
   displayName: req.user ? req.user.displayName : ''
+  })
 });
 
 router.get('login', function(req, res, next) {
