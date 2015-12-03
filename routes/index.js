@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   res.render('login', {
     title: 'Home', 
+     messages: req.flash('loginMessage'),
     displayName: req.user ? req.user.displayName : ''
   })
 });
