@@ -30,7 +30,7 @@ router.get('/register', function(req, res, next) {
   if(!req.user) {
     res.render('register', {
       title: 'Register',
-      message: req.flash('registerMessage'),
+      message: req.flash('registrationMessage'),
       displayName: req.user ? req.user.displayName : ''
     });
   }
