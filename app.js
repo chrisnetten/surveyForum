@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // Route Alias
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./server/routes/index');
+var users = require('./server/routes/users');
 
 //Authentication/DB Modules
 var session = require('express-session'); //Session
@@ -16,7 +16,7 @@ var flash = require('connect-flash'); //Flash Messages
 var passport = require('passport'); // Authentication
 
 //DB SetUP
-var DB = require('./config/db.js');
+var DB = require('./server/config/db.js');
 mongoose.connect(DB.url);
 mongoose.connection.on('error', function() {
   
@@ -24,12 +24,12 @@ mongoose.connection.on('error', function() {
 });
 
 // passport config
-require('./config/passport')(passport)
+require('./server/config/passport')(passport)
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './server/views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
