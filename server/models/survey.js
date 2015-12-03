@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var SurveySchema = new mongoose.Schema ( {
 	
 	username: String,
-	surveyname: String,
+	name: String,
 	question: String,
 	choice: String,
 	response: String

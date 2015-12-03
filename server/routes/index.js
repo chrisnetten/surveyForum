@@ -3,11 +3,20 @@ var passport = require('passport');
 var router = express.Router();
 
 var User = require('../models/user');
-
+var Survey = require('../models/survey');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
-  displayName: req.user ? req.user.displayName : ''
+   Survey.find(function(err, survey) {
+    if(err) {
+      console.log(err);
+      res.end(err);
+    }
+    else {
+      res.render('index', {  
+      survey : survey, 
+      displayName: req.user ? req.user.displayName : ''
+      });
+    }
   })
 });
 
