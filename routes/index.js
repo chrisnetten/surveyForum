@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('login', function(req, res, next) {
+router.get('/login', function(req, res, next) {
   res.render('login', {
     title: 'Home', 
     displayName: req.user ? req.user.displayName : ''
@@ -27,7 +27,7 @@ router.post('/login', passport.authenticate('loginLocal', {
 /* Show Registration Page */
 router.get('/register', function(req, res, next) {
   if(!req.user) {
-    res.render('!register', {
+    res.render('/register', {
       title: 'Register',
       message: req.flash('registerMessage'),
     });
