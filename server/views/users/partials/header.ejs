@@ -52,7 +52,13 @@
              </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if (displayName) { %>
-   
+              
+               <% if(title == "UserPage" ) { %>
+            <li class="active">
+              <% } else { %>
+            <li>
+              <% } %>
+              <a href="users">My Account</a></li>
                <% if(title == "userSurveys" ) { %>
             <li class="active">
               <% } else { %>
