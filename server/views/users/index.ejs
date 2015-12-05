@@ -14,7 +14,8 @@
                  <label for="email">Email: <%= email %></label>
                  
                  <label for="email"> Date Created: <%= created %></label>
-                 <%if(var i=0; i < users.length; i++) { %?
+                 
+                 <%if(var i=0; i < users.length; i++) { %>
                  <a href="/users/<%= users[i]._id %>" title="Edit" class="btn btn-primary">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
