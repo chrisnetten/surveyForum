@@ -30,4 +30,51 @@ router.get('/', requireAuth, function(req, res, next) {
   });
 });
 
+router.get('/:id', requireAuth, function(req, res, next){
+  //create the id variable
+  var id = req.params.id;
+  
+  // use mongoose nad model to find the contact
+  User.findById(id, function(err, user) {
+    
+      
+    if(err) {
+      console.log(err);
+      res.end(err);
+    }
+    else {
+      //show edit view
+      res.render('user/editUser', {
+        title: "Edit",
+        user: user,
+        displayName: req.user ? req.user.displayName : '',
+        username: req.user ? req.user.username : ''
+        
+        
+      });
+    }
+    });
+  });
+
+
+/* Edit form submission */
+
+router.post('/:id', requireAuth, function(req, res, next) {
+  var id = req.params.id;
+  var user = new User(req.body);
+  user._id = id;
+  user.updated = Date.now();
+  
+  // mongoose will do the update
+  User.update({_id: id}, user, function (err) {
+    if(err) {
+      console.log(err);
+      res.end(err);
+    }
+    else {
+      res.redirect('/user');
+    }
+  });
+});
+
 module.exports = router;
