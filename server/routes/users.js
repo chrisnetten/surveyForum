@@ -27,7 +27,8 @@ router.get('/', requireAuth, function(req, res, next) {
         displayName: req.user ? req.user.displayName : '',
         username: req.user ? req.user.username : '',
         email: req.user? req.user.email : '',
-        created: req.user? req.user.created : ''
+        created: req.user? req.user.created : '',
+        _id: req.user? req.user.created : ''
       });
     }
   });
