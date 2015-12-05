@@ -7,8 +7,6 @@
  <tr>
                         <th>User Name</th>
                         <th>Survey Title</th>
-                        <th>Date Created</th>
-                        <th>Date Updated</th>
 						<th>Expiration Date</th>
                         <th></th>
                     </tr>
@@ -20,18 +18,12 @@
                         <%= survey[i].username%>
                     </td>
                     <td>
-                        <%= contact[i].surveyname %>
+                        <%= survey[i].surveyname %>
                     </td>
                     <td>
-                        <% var date = new Date(contact[i].created);
-                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
-                        <%= dateString %>
+                        <%= survey[i].expirationDate %>
                     </td>
-					 <td>
-                        <% date = new Date(contact[i].updated);
-                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
-                        <%= dateString %>
-                    </td>
+                   
 </tr>
 
 
