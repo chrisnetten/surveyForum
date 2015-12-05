@@ -9,14 +9,14 @@
         <form method="post">
             <fieldset class="form-group">
                 <label for="displayName">Display Name: *</label>
-                <input name="displayName" type="text" class="form-control" required value="<%= users.name %>" autofocus />
+                <input name="displayName" type="text" class="form-control" required value="<%= users.displayName %>" autofocus />
             </fieldset>
             <fieldset class="form-group">
                 <label for="email">Email: *</label>
                 <input name="email" type="email" class="form-control" required value="<%= users.email %>"/>
             </fieldset>
             <fieldset class="form-group">
-                <label for="password">Password: *</label>
+                <label for="password">New Password: *</label>
                 <input name="password" type="password" class="form-control" required value="Enter New Password" />
             </fieldset>
             <fieldset class="form-group text-right">
