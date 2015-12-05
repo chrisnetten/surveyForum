@@ -23,7 +23,8 @@ router.get('/', requireAuth, function(req, res, next) {
       res.render('user/index', {
         title: 'UserPage',
         users : users,
-        displayName: req.user ? req.user.displayName : ''
+        displayName: req.user ? req.user.displayName : '',
+        username: req.user ? req.user.username : ''
       });
     }
   });
