@@ -3,19 +3,20 @@
 <body>
 <h1>Welcome to our Survey site </h1>
   <main class="jumbotron">
- <% if (username) { %>
+                <% if (username) { %>
               
             
                 <h1> Youve Logged in <%= username %><h1>
-                 <label for="name">Name: </label>
-                 <p> <%= users.name %> </p>
-                 <label for="email">Email: </label>
-                 <p> <%= users.email %> </p>
+                <% } %>
+                 <label for="name">Name: <%= users.name %></label>
+                  
+                 <label for="email">Email: <%= users.email %></label>
                  
                  
                  
                  
-                 <% } %>
+                 
+                 
 
   </main>
 
