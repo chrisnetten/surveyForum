@@ -49,7 +49,7 @@ router.get('/:id', requireAuth, function(req, res, next){
     else {
       //show edit view
       res.render('users/editUser', {
-        title: "Edit",
+        title: "EditUser",
         user: users,
         displayName: req.user ? req.user.displayName : '',
         username: req.user ? req.user.username : ''
