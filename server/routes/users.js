@@ -20,7 +20,7 @@ router.get('/', requireAuth, function(req, res, next) {
       res.end(err);
     }
     else {
-      res.render('users/index', {
+      res.render('users/index:users[i]._id', {
         title: 'UserPage',
         users : users,
         displayName: req.user ? req.user.displayName : '',
