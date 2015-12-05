@@ -14,15 +14,15 @@ function requireAuth(req, res, next) {
 
 /* GET users listing. */
 router.get('/', requireAuth, function(req, res, next) {
-  User.find(function(err, user) {
+  User.find(function(err, users) {
     if(err) {
       console.log(err);
       res.end(err);
     }
     else {
-      res.render('user/index', {
+      res.render('users/index', {
         title: 'UserPage',
-        user : user,
+        users : users,
         displayName: req.user ? req.user.displayName : '',
         username: req.user ? req.user.username : ''
       });
@@ -35,7 +35,7 @@ router.get('/:id', requireAuth, function(req, res, next){
   var id = req.params.id;
   
   // use mongoose nad model to find the contact
-  User.findById(id, function(err, user) {
+  User.findById(id, function(err, users) {
     
       
     if(err) {
@@ -44,9 +44,9 @@ router.get('/:id', requireAuth, function(req, res, next){
     }
     else {
       //show edit view
-      res.render('user/editUser', {
+      res.render('users/editUser', {
         title: "Edit",
-        user: user,
+        user: users,
         displayName: req.user ? req.user.displayName : '',
         username: req.user ? req.user.username : ''
         
@@ -72,7 +72,7 @@ router.post('/:id', requireAuth, function(req, res, next) {
       res.end(err);
     }
     else {
-      res.redirect('/user');
+      res.redirect('/users');
     }
   });
 });
