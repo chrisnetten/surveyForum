@@ -14,10 +14,11 @@
                  <label for="email">Email: <%= email %></label>
                  
                  <label for="email"> Date Created: <%= created %></label>
-                 
-                 <a href="/users/<%= _id %>" title="Edit" class="btn btn-primary">
+                 <%if(var i=0; i < users.length; i++) { %?
+                 <a href="/users/<%= users[i]._id %>" title="Edit" class="btn btn-primary">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
+                 <% } %>
                  </div>
                  
                  
