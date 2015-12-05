@@ -67,7 +67,9 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/" id="nav-button"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="/register" id="nav-button"><i class="fa fa-wrench"></i> Register</a></li>
+                <% if(username = 0) { %>
                 <li><a href="/login" id="nav-button"><i class="fa fa-paper-plane-o"></i> Log-In</a></li>
+                <% } %>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                <% if (displayName) { %>
