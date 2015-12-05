@@ -14,8 +14,8 @@ function requireAuth(req, res, next) {
 
 /* GET users listing. */
 router.get('/', requireAuth, function(req, res, next) {
-     var id = req.params.id;
-    User.findById(id, function(err, users) {
+  User.find(function(err, users) {
+    
     if(err) {
       console.log(err);
       res.end(err);
@@ -25,7 +25,9 @@ router.get('/', requireAuth, function(req, res, next) {
         title: 'UserPage',
         users : users,
         displayName: req.user ? req.user.displayName : '',
-        username: req.user ? req.user.username : ''
+        username: req.user ? req.user.username : '',
+        email: req.user? req.user.email : '',
+        created: req.user? req.user.created : ''
       });
     }
   });
