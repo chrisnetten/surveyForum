@@ -5,6 +5,11 @@
   <main class="jumbotron">
 
               <div class="panel panel-default">
+              <div class="panel-heading">
+              <% if (username) { %>
+                            <a href="/users/add" title="Add New Survey"><i class="fa fa-plus-circle"></i> Add A New Survey</a>
+                        <% } %>
+              </div>
         <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead>
@@ -43,6 +48,8 @@
                     <a href="/survey<%= survey[i]._id %>" title="View" class="btn btn-primary">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
+                        
+                        
                     </td>
                      
                 </tr>
