@@ -13,14 +13,14 @@ function requireAuth(req, res, next) {
 }
 
 /* GET users listing. */
-router.get('/', requireAuth, function(req, res, next) {
+router.get('/:users[i]._id', requireAuth, function(req, res, next) {
   User.find(function(err, users) {
     if(err) {
       console.log(err);
       res.end(err);
     }
     else {
-      res.render('users/index:users[i]._id', {
+      res.render('users/index', {
         title: 'UserPage',
         users : users,
         displayName: req.user ? req.user.displayName : '',
