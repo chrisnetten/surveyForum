@@ -14,7 +14,8 @@ router.get('/', function(req, res, next) {
     else {
       res.render('index', {  
       survey : survey, 
-      displayName: req.user ? req.user.displayName : ''
+      displayName: req.user ? req.user.displayName : '',
+      username: req.user ? req.user.username : ''
       });
     }
   })
