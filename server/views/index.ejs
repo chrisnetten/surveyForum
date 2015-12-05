@@ -14,9 +14,10 @@
                         <th>Replies</th>
                         <th>Date Created</th>
                         <th>Date Updated</th>
+                        <th></th>
                     </tr>
                 </thead>
-                </tbody>
+                <tbody>
                 <% for (var i = 0; i < survey.length; i++) { %>
                 <tr>
                     <td>
@@ -37,6 +38,11 @@
                         <% date = new Date(contact[i].updated);
                          var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
                         <%= dateString %>
+                    </td>
+                    <td>
+                    <a href="/survey<%= survey[i]._id %>" title="View" class="btn btn-primary">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
                     </td>
                      
                 </tr>

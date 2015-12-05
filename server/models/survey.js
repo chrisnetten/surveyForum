@@ -12,7 +12,11 @@ var SurveySchema = new mongoose.Schema ( {
 	name: String,
 	question: String,
 	choice: String,
-	response: String
+	response: String,
+	replies: Number,
+	created: Number,
+	updated: Number,
+	expirationDate: Number
 	
 	
 },
