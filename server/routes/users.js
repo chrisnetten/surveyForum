@@ -13,7 +13,7 @@ function requireAuth(req, res, next) {
 }
 
 /* GET users listing. */
-router.get('/:id', requireAuth, function(req, res, next) {
+router.get('/', requireAuth, function(req, res, next) {
   User.find(function(err, users) {
      var id = req.params.id;
     User.findById(id, function(err, users) {
