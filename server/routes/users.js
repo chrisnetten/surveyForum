@@ -65,12 +65,12 @@ router.get('/:id', requireAuth, function(req, res, next){
 
 router.post('/:id', requireAuth, function(req, res, next) {
   var id = req.params.id;
-  var user = new User(req.body);
-  user._id = id;
-  user.updated = Date.now();
+  var users = new User(req.body);
+  users._id = id;
+  users.updated = Date.now();
   
   // mongoose will do the update
-  User.update({_id: id}, user, function (err) {
+  User.update({_id: id}, users, function (err) {
     if(err) {
       console.log(err);
       res.end(err);
