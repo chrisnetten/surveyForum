@@ -14,7 +14,7 @@ function requireAuth(req, res, next) {
 
 /* GET users listing. */
 router.get('/', requireAuth, function(req, res, next) {
-  User.find(function(err, users) {
+  User.find(function(err, user) {
     if(err) {
       console.log(err);
       res.end(err);
@@ -22,7 +22,7 @@ router.get('/', requireAuth, function(req, res, next) {
     else {
       res.render('user/index', {
         title: 'UserPage',
-        users : users,
+        user : user,
         displayName: req.user ? req.user.displayName : '',
         username: req.user ? req.user.username : ''
       });
