@@ -4,35 +4,63 @@
 <h1>Welcome to our Survey site </h1>
   <main class="jumbotron">
 
-<div class="container">
-            <ng-view></ng-view>
-        </div> <!-- container -->
+              <div class="panel panel-default">
+              <div class="panel-heading">
+              <% if (username) { %>
+                            <a href="/users/add" title="Add New Survey"><i class="fa fa-plus-circle"></i> Add A New Survey</a>
+                        <% } %>
+              </div>
+        <div class="panel-body table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Survey Name</th>
+                        <th>User Name</th>
+                        <th>Replies</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for (var i = 0; i < survey.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= survey[i].name %>
+                    </td>
+                    <td>
+                        <%= survey[i].username %>
+                    </td>
+                    <td> 
+                        <%= survey[i].replies %>
+                    </td>
+                    <td>
+                        <% var date = new Date(contact[i].created);
+                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
+                        <%= dateString %>
+                    </td>
+                    <td>
+                        <% date = new Date(contact[i].updated);
+                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
+                        <%= dateString %>
+                    </td>
+                    <td>
+                    <a href="/survey<%= survey[i]._id %>" title="View" class="btn btn-primary">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
+                        
+                        
+                    </td>
+                     
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div> <!-- panel-body -->
+        
+    </div><!-- panel panel-default -->
 
-        <script type="text/ng-template" id="/index.html">
-             
-       <div class="container">
-        <% if (username) { %>
-    <button class="btn btn-primary">New</button>
-    <% } %>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="survey in surveys" ng-class-even="'success'">
-                <td>{{survey.name}}</td>
-                <td>{{survey.description}}</td>
-                <td><a ng-href="#/survey/{{survey.id}}">Edit</a><div class="span1"> </span><a ng-href="#" ng-click="delete($index)">Delete</a></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
-</script>
   </main>
 
 
