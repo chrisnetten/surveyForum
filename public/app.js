@@ -41,10 +41,10 @@ app.controller('SurveyController',['$scope','$routeParams','$location', function
 
 	$scope.save = function(){
 		$scope.survey = angular.copy($scope.survey, survey);
-		$location.path('/surveys');
+		$location.path('/index');
 	}
 
 	$scope.cancel = function(){
-		$location.path('/surveys');
+		$location.path('/index');
 	}
 }])
