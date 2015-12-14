@@ -3,11 +3,16 @@
 <body>
 <h1>Welcome to our Survey site </h1>
   <main class="jumbotron">
-                <% if (username) { %>
+  <div class="panel-heading">
+             <% if (username) { %>
               
             
                 <h1> Youve Logged in <%= username %><h1>
                 <% } %>
+              </div>
+              <div class="panel panel-default">
+                
+                
                 <div class ="container">
                 
                   
@@ -22,7 +27,7 @@
                 
                  </div>
                  
-                 
+                 </div>
                  
 
   </main>
