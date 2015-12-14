@@ -3,17 +3,17 @@ var passport = require('passport');
 var router = express.Router();
 
 var User = require('../models/user');
-var Survey = require('../models/Poll');
+var Poll = require('../models/Poll');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   Survey.find(function(err, survey) {
+   Poll.find(function(err, poll) {
     if(err) {
       console.log(err);
       res.end(err);
     }
     else {
       res.render('index', {  
-      survey : survey, 
+      poll : poll, 
       displayName: req.user ? req.user.displayName : '',
       username: req.user ? req.user.username : ''
       });
