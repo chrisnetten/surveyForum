@@ -1,16 +1,17 @@
 <%- include partials/header.ejs %>
 
 <body>
-<h1>Welcome to our Survey site </h1>
+<h1>Welcome <%= username %> To Your Account Page </h1>
   <main class="jumbotron">
+  <div class="panel panel-default">
   <div class="panel-heading">
              <% if (username) { %>
               
             
-                <p> Youve Logged in <%= username %> <p>
+                <p> Youve Logged in:  <%= username %> <p>
                 <% } %>
               </div>
-              <div class="panel panel-default">
+              
                <div class="panel-body table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead>
@@ -32,6 +33,7 @@
                         </a> </td>
                
                  
+                 </div>
                  </div>
                  
                  </tr>
