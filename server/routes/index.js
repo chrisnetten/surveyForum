@@ -4,8 +4,7 @@ var router = express.Router();
 
 var User = require('../models/user');
 
-var PollSchema = require('../models/Poll.js').PollSchema;
-var Poll = db.model('polls', PollSchema);
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   
