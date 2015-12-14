@@ -108,11 +108,11 @@ app.controller('PollNewCtrl', ['$scope', '$location', 'Poll',
   // Routes ++++++++++++++++++++++++++++++++++++++++++++++++++++++
     app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
-                .when('/polls', {
+                .when('/', {
                 templateUrl: '/list.html',
                 controller: 'PollListCtrl'
             })
-                .when('/poll/:pollId', {
+                .when('/:pollId', {
                 templateUrl: '/item.html',
                 controller: 'PollItemCtrl'
                 })
