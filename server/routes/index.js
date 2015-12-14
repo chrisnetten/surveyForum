@@ -6,6 +6,7 @@ var User = require('../models/user');
 var Poll = require('../models/Poll');
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  
    Poll.find(function(err, poll) {
     if(err) {
       console.log(err);
