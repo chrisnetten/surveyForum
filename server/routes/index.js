@@ -3,7 +3,7 @@ var passport = require('passport');
 var router = express.Router();
 
 var User = require('../models/user');
-var Survey = require('../models/survey');
+var Survey = require('../models/Poll');
 /* GET home page. */
 router.get('/', function(req, res, next) {
    Survey.find(function(err, survey) {
