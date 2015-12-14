@@ -1,29 +1,16 @@
-//Import mongoose and bcrypt
-
 var mongoose = require('mongoose');
 
+// Subdocument schema for votes
+var voteSchema = new mongoose.Schema({ ip: 'String' });
 
-
-// Define user Schema
-
-var SurveySchema = new mongoose.Schema ( {
-	
-	username: String,
-	name: String,
-	question: String,
-	choice: String,
-	response: String,
-	replies: Number,
-	created: Number,
-	updated: Number,
-	expirationDate: Number
-	
-	
-},
-{
-	collection: 'survey'
+// Subdocument schema for poll choices
+var choiceSchema = new mongoose.Schema({ 
+	text: String,
+	votes: [voteSchema]
 });
 
-
-
-module.exports = mongoose.model('Survey', SurveySchema);
+// Document schema for polls
+exports.PollSchema = new mongoose.Schema({
+	question: { type: String, required: true },
+	choices: [choiceSchema]
+});
