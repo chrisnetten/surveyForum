@@ -64,9 +64,9 @@ router.get('/logout', function(req,res) {
 
 
 /* Show Survey List Page */
-router.get('/surveyList',  function (req, res, next) {
+router.get('/survey',  function (req, res, next) {
 
-        res.render('surveyList', {
+        res.render('survey', {
             title: 'Survey',
             displayName: req.user ? req.user.displayName : '',
             username: req.user ? req.user.username : '' 

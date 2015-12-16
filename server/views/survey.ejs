@@ -1,6 +1,11 @@
 <%- include partials/header.ejs %>
 
 <body>
+
+<div class="container">
+            <ng-view></ng-view>
+        </div> <!-- container -->
+
 <script type="text/ng-template" id="/survey.html">
             
             <div class="panel panel-default" ng-init="setUserName('<%= username %>')">
