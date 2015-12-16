@@ -87,7 +87,8 @@ router.get('/logout', function(req,res) {
 router.get('/add', requireAuth, function(req, res, next) {
   res.render('add', {
     title: 'AddSurvey', 
-    displayName: req.user ? req.user.displayName : ''
+    displayName: req.user ? req.user.displayName : '',
+    username: req.user ? req.user.username : ''
   })
 });
 /* Submisson of new user */
