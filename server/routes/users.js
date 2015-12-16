@@ -85,13 +85,7 @@ router.post('/:id', requireAuth, function(req, res, next) {
 
 
 
-router.get('/add', function(req, res, next) {
-  res.render('users/add', {
-    title: 'AddSurvey', 
-    displayName: req.user ? req.user.displayName : ''
-  })
-});
-/* Submisson of new user */
+
 
 
 
