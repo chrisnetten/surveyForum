@@ -1,11 +1,9 @@
 /// <reference path="_reference.ts" />
-
-    
-    (function() {
-      var mainModuleName = "app";
-      var app = angular.module('gemStore', mainModuleName ['store-directives']);
-
- angular.element(document).ready(function () {
+(function () {
+    var mainModuleName = "app";
+    var app = angular.module(mainModuleName, ['ngRoute', 'ngResource']);
+    //wait until the document loads
+    angular.element(document).ready(function () {
         // manually boostrap angular 
         angular.bootstrap(document, [mainModuleName]);
     });
