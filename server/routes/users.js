@@ -83,14 +83,14 @@ router.post('/:id', requireAuth, function(req, res, next) {
   });
 });
 
-/* Render add user page */
-router.get('/add', requireAuth, function(req, res, next) {
-    res.render('users/add', {
-      title: 'AddSurvey',
-      displayName: req.user ? req.user.displayName : ''
-})
-});
 
+
+router.get('/add', function(req, res, next) {
+  res.render('users/add', {
+    title: 'AddSurvey', 
+    displayName: req.user ? req.user.displayName : ''
+  })
+});
 /* Submisson of new user */
 
 
