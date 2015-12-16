@@ -7,23 +7,28 @@ var Survey = require('../models/survey');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-   Survey.find(function(err, survey) {
+
+ 
+ router.get('/',  function (req, res, next) {
+  Survey.find(function(err, survey) {
     
     if(err) {
       console.log(err);
       res.end(err);
     }
-    else {
-      survey : survey,
-      res.render('index', {  
-      displayName: req.user ? req.user.displayName : '',
-      username: req.user ? req.user.username : ''
-      
+    else{
+      res.render('users/index', {
+          title: 'Survey',
+          survey: survey,
+          displayName: req.user ? req.user.displayName : '',
+           username: req.user ? req.user.username : ''
+          
       });
     }
-});
-});
+    });
+  });
+
+
     
 
 
