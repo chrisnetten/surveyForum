@@ -84,36 +84,6 @@ router.get('/logout', function(req,res) {
   res.redirect('/');
 });
 
-/* Render add user page */
-router.get('/add', requireAuth, function(req, res, next) {
-    res.render('users/add', {
-      title: 'Add',
-      displayName: req.user ? req.user.displayName : ''
-});
-});
 
-/* Submisson of new user */
-
-router.post('/add', requireAuth, function (req, res, next) {
-    var survey = new Survey(req.body);
-    
-    
-    Survey.create({
-      name: req.body.name,
-      username: req.body.username,
-      Question: req.body.question,
-      answer: req.body.answer,
-      created: Date.now(),
-      updated: Date.now()
-    }, function(err, User) {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      }
-      else {
-        res.redirect('index')
-      }
-    });
-});
 
 module.exports = router;
