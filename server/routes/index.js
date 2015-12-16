@@ -84,6 +84,12 @@ router.get('/logout', function(req,res) {
   res.redirect('/');
 });
 
-
+router.get('/add', requireAuth, function(req, res, next) {
+  res.render('add', {
+    title: 'AddSurvey', 
+    displayName: req.user ? req.user.displayName : ''
+  })
+});
+/* Submisson of new user */
 
 module.exports = router;
