@@ -93,27 +93,7 @@ router.get('/add', requireAuth, function(req, res, next) {
 
 /* Submisson of new user */
 
-router.post('/add', requireAuth, function (req, res, next) {
-    var survey = new Survey(req.body);
-    
-    
-    Survey.create({
-      name: req.body.name,
-      username: req.body.username,
-      Question: req.body.question,
-      answer: req.body.answer,
-      created: Date.now(),
-      updated: Date.now()
-    }, function(err, User) {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      }
-      else {
-        res.redirect('/users')
-      }
-    });
-});
+
 
 
 module.exports = router;
