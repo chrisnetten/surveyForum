@@ -101,6 +101,7 @@ router.post('/add', requireAuth, function (req, res, next) {
       name: req.body.name,
       username: req.body.username,
       Question: req.body.question,
+      answer: req.body.answer,
       created: Date.now(),
       updated: Date.now()
     }, function(err, User) {
