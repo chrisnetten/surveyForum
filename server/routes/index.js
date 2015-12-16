@@ -17,7 +17,7 @@ var Survey = require('../models/survey');
       res.end(err);
     }
     else{
-      res.render('users/index', {
+      res.render('index', {
           title: 'Survey',
           survey: survey,
           displayName: req.user ? req.user.displayName : '',
