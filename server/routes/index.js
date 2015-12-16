@@ -3,17 +3,25 @@ var passport = require('passport');
 var router = express.Router();
 
 var User = require('../models/user');
+var Survey = require('../models/user');
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  
+   Survey.find(function(err, users) {
+    
+    if(err) {
+      console.log(err);
+      res.end(err);
+    }
+    else {
 
       res.render('index', {  
       displayName: req.user ? req.user.displayName : '',
       username: req.user ? req.user.username : ''
       
       });
+    }
 });
     
 
@@ -63,16 +71,7 @@ router.get('/logout', function(req,res) {
 
 
 
-/* Show Survey List Page */
-router.get('/survey',  function (req, res, next) {
 
-        res.render('survey', {
-            title: 'Survey',
-            displayName: req.user ? req.user.displayName : '',
-            username: req.user ? req.user.username : '' 
-        });
-
-});
 
 
 

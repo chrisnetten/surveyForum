@@ -19,8 +19,8 @@ var UserSchema = new Schema ( {
 	provider: String, //future login ex: github
 	providerId: String,
 	providerData: {},
-	created: Number,
-	updated: Number
+	created: {type: Date, default: Date.now},
+	updated: {type: Date, default: Date.now}
 	
 	
 },

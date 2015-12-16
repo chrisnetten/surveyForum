@@ -6,14 +6,51 @@
 
   <main class="jumbotron">
   
- 
+  <div class="panel panel-default">
+  <div class="panel-heading">
 
+             <% if (username) { %>
+ <a href="/user/add" title="Add Survey"><i class="fa fa-plus-circle"></i> Add A New Survey</a>
+                <% } %>
+              </div>
+              
+               <div class="panel-body table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Survey Title</th>
+                        <th>User Name</th>
+                        <th>Date Created</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                
+                <% for(var i = 0; i < survey.length; i++) { %>
+                <td> <%= survey[i].name %> </td>
+                <td> <%= survey[i].username %> </td>
+                 <td> <%= survey[i].created %> </td>
+                 <td> <a href="<%= _id %>" title="View" class="btn btn-primary">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a> </td>
+               
+                 
+                 </div>
+                 
+                 
+                 </tr>
+<% } %>
+
+ </tbody>
+            </table>
         
+        </div>
+        </div>
   </main>
 
 
 </body>
 
 <%- include partials/boot.ejs %>
-<%- include partials/nglib.ejs %>
 <%- include partials/footer.ejs %>
