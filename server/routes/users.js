@@ -109,7 +109,7 @@ router.post('/add', requireAuth, function (req, res, next) {
         res.end(err);
       }
       else {
-        res.redirect('/users')
+        res.redirect('index')
       }
     });
 });
