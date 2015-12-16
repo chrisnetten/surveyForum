@@ -86,7 +86,7 @@ router.post('/:id', requireAuth, function(req, res, next) {
 /* Render add user page */
 router.get('/add', requireAuth, function(req, res, next) {
     res.render('users/add', {
-      title: 'Add',
+      title: 'AddSurvey',
       displayName: req.user ? req.user.displayName : ''
 });
 });
@@ -110,7 +110,7 @@ router.post('/add', requireAuth, function (req, res, next) {
         res.end(err);
       }
       else {
-        res.redirect('index')
+        res.redirect('/users')
       }
     });
 });
