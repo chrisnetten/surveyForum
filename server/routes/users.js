@@ -3,6 +3,7 @@ var passport = require('passport');
 var router = express.Router();
 
 var User = require('../models/user');
+var Survey = require ('../models/survey');
 
 /* Function to check if user is authenticated */
 function requireAuth(req, res, next) {
@@ -81,5 +82,37 @@ router.post('/:id', requireAuth, function(req, res, next) {
     }
   });
 });
+
+/* Render add user page */
+router.get('/add', requireAuth, function(req, res, next) {
+    res.render('users/add', {
+      title: 'Add',
+      displayName: req.user ? req.user.displayName : ''
+});
+});
+
+/* Submisson of new user */
+
+router.post('/add', requireAuth, function (req, res, next) {
+    var survey = new Survey(req.body);
+    
+    
+    Survey.create({
+      name: req.body.name,
+      username: req.body.username,
+      Question: req.body.question,
+      created: Date.now(),
+      updated: Date.now()
+    }, function(err, User) {
+      if(err) {
+        console.log(err);
+        res.end(err);
+      }
+      else {
+        res.redirect('/users')
+      }
+    });
+});
+
 
 module.exports = router;
