@@ -5,40 +5,32 @@
 <h1>Welcome to our Poll site </h1>
 
   <main class="jumbotron">
+  <script type="text/ng-template" id="/index.html">
   
-  <div class="panel panel-default">
-  <div class="panel-heading">
+  <body ng-controller="StoreController as store">
+    <!--  Store Header  -->
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
 
-             <% if (username) { %>
-              
-            <a href="" title="AddNewPoll"><i class="fa fa-plus-circle"></i> Add A New Poll</a>
-              
-                <% } %>
-              </div>
-              
-               <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Current Polls</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                
-                <td></td>
-                 <td> <a href="" title="View" class="btn btn-primary">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a> </td>
-               
-                 
-                 </div>
-                 </div>
-                 
-                 </tr>
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
 
+        <!-- Image Gallery  -->
+        <product-gallery></product-gallery>
 
+        <!-- Product Tabs  -->
+        <product-tabs></product-tabs>
+      </div>
+
+    </div>
+  </body>
+  
+  </script>
   </main>
 
 
