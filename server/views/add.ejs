@@ -2,7 +2,38 @@
 
 <body>
 
+	
+<main class="jumbotron">
 
+<div class="container">
+	
+    <div class="row">
+       <div class="col-sm-4">
+        <form method="post">
+            <fieldset class="form-group">
+                <label for="name">Survey Name: *</label>
+                <input name="name" type="text" class="form-control" required autofocus />
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="username">UserName: *</label>
+                <input name="username" type="username" class="form-control" required value="<%= username %>"/>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="question">Question: *</label>
+                <input name="question" type="question" class="form-control" required />
+            </fieldset>
+             <fieldset class="form-group">
+                <label for="answer">Answer: *</label>
+                <input name="answer" type="text" class="form-control" required autofocus />
+            </fieldset>
+            <fieldset class="form-group text-right">
+                <input type="submit" class="btn btn-success" value="Submit"/>
+            </fieldset>
+        </form>
+    </div>
+  </div>
+ </div>
+</main>
 
 
 
