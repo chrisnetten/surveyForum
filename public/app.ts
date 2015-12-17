@@ -17,6 +17,7 @@
      app.controller('SurveyController', ['$scope', 'Survey', function ($scope, Survey) {
             $scope.editing = [];
             $scope.username = '';
+            $scope.button = true;
             $scope.userSurvey = [];
             $scope.setUserName = function (userName) {
                 $scope.username = userName; //get the username
@@ -24,6 +25,9 @@
                     $scope.userSurvey = []; // reset the userTodos array
                     $scope.survey.forEach(function (survey) {
                         
+                        if ($scope.username == Survey.username) {
+                            $scope.button = false;
+                        }
                             $scope.userSurvey.push(survey);
                         
                     });
