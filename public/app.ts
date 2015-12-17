@@ -8,6 +8,12 @@
         angular.bootstrap(document, [mainModuleName]);
     });
     
+    app.factory('Survey', ['$resource', function ($resource) {
+            return $resource('/survey/:id', null, {
+                'update': { method: 'PUT' }
+            });
+        }]);
+    
      app.controller('SurveyController', ['$scope', 'Survey', function ($scope, Survey) {
             $scope.editing = [];
             $scope.username = '';
@@ -72,4 +78,16 @@
                 return count;
             };
         }]);
-});
+
+  app.config(['$routeProvider', function ($routeProvider) {
+            $routeProvider
+                .when('/', {
+                templateUrl: '/survey.html',
+                controller: 'SurveyController'
+            })
+                .when('/:id', {
+                templateUrl: '/surveyDetails.html',
+                controller: 'SurveyDetailCtrl'
+            });
+        }]);
+})();
