@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 // Route Alias
 var routes = require('./server/routes/index');
 var users = require('./server/routes/users');
+var survey = require('./server/routes/survey');
 
 //Authentication/DB Modules
 var session = require('express-session'); //Session
@@ -54,6 +55,7 @@ app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/survey', survey);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
