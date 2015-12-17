@@ -14,20 +14,20 @@
                 </div> <!-- panel-heading -->
                 <div class="panel-body">
                     <h4> Surveys of <span class="badge">{{totalSurveys()}}</span> remaining</h4>
-                    <h5>Search Todos:</h5>
+                    <h5>Search Surveys:</h5>
                     <input type="text" ng-model="search.name" id="searchSurvey" placeholder="Survey to find" class="form-control">
 
                     <ul class="list-group">
-                        <li class="list-group-item active">Current Todos</li>
-                        <li ng-repeat="survey in surveys | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
+                        <li class="list-group-item active">Current Surveys</li>
+                        <li ng-repeat="survey in survey | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
                             <div class="btn-group">
                                 <button type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
 
                             </div> <!-- btn-group -->
                             <span ng-show="editing[$index]">complete?</span>
                             <input type="checkbox" ng-model="survey.completed" ng-change="update($index)">
-                            <span class="todos">
-                  <a ng-show="!editing[$index]" href="#/{{todo._id}}" class="completed-{{todo.completed}}">{{todo.name}}</a></span>
+                            <span class="survey">
+                  <a ng-show="!editing[$index]" href="#/{{survey._id}}" class="completed-{{survey.completed}}">{{survey.name}}</a></span>
 
                             <input ng-show="editing[$index]" type="text" ng-model="survey.name" class="form-control">
                             <div class="btn-group">
@@ -37,9 +37,10 @@
                             </div> <!-- btn-group -->
                         </li>
                     </ul>
-
+                    <% if (username) { %>
                     <h5>New Survey</h5>
                     <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey" class="form-control">
+                    <% } %>
                     
                     <button type="button" ng-click="save()" class="btn btn-primary">Create</button>
                 </div> <!-- panel-body -->
