@@ -31,7 +31,7 @@
                 });
             };
             $scope.save = function () {
-                if (!$scope.newSurvey || $scope.newSurvey.length < 1) {
+                if (!$scope.newSurvey , !$scope.newQuestion|| $scope.newSurvey.length < 1, $scope.newQuestion.length < 1) {
                     return;
                 }
                 var survey = new Survey({ name: $scope.newSurvey, question: $scope.newQuestion, username: $scope.username, completed: false });

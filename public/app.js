@@ -27,13 +27,14 @@
                 });
             };
             $scope.save = function () {
-                if (!$scope.newSurvey || $scope.newSurvey.length < 1) {
+                if (!$scope.newSurvey, !$scope.newQuestion || $scope.newSurvey.length < 1, $scope.newQuestion.length < 1) {
                     return;
                 }
-                var survey = new Survey({ name: $scope.newSurvey, username: $scope.username, completed: false });
+                var survey = new Survey({ name: $scope.newSurvey, question: $scope.newQuestion, username: $scope.username, completed: false });
                 survey.$save(function () {
                     $scope.survey.push(survey);
-                    $scope.newSurvey = ''; // clear textbox
+                    $scope.newSurvey = '';
+                    $scope.newQuestion = ''; // clear textbox
                 });
             };
             $scope.update = function (index) {
@@ -54,13 +55,6 @@
                     $scope.survey.splice(index, 1);
                 });
                 $scope.editing[index] = false;
-            };
-            $scope.remainingSurvey = function () {
-                var count = 0;
-                angular.forEach($scope.survey, function (survey) {
-                    count += survey.completed ? 0 : 1;
-                });
-                return count;
             };
             $scope.totalSurvey = function () {
                 var count = 0;
