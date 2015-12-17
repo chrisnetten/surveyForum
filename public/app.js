@@ -64,6 +64,15 @@
                 return count;
             };
         }]);
+    app.controller('TabController', function () {
+        this.tab = 1;
+        this.setTab = function (newValue) {
+            this.tab = newValue;
+        };
+        this.isSet = function (tabName) {
+            return this.tab === tabName;
+        };
+    });
     app.controller('SurveyDetailCtrl', ['$scope', '$routeParams', 'Survey', '$location',
         function ($scope, $routeParams, Survey, $location) {
             $scope.survey = Survey.get({ id: $routeParams.id });
@@ -80,15 +89,6 @@
             $scope.cancel = function () {
                 $location.url('/');
             };
-            app.controller('TabController', function () {
-                this.tab = 1;
-                this.setTab = function (newValue) {
-                    this.tab = newValue;
-                };
-                this.isSet = function (tabName) {
-                    return this.tab === tabName;
-                };
-            });
         }]);
     app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
