@@ -64,6 +64,23 @@
                 return count;
             };
         }]);
+    app.controller('SurveyDetailCtrl', ['$scope', '$routeParams', 'Survey', '$location',
+        function ($scope, $routeParams, Survey, $location) {
+            $scope.survey = Survey.get({ id: $routeParams.id });
+            $scope.update = function () {
+                Survey.update({ id: $scope.survey_id }, $scope.survey, function () {
+                    $location.url('/');
+                });
+            };
+            $scope.remove = function () {
+                Survey.remove({ id: $scope.survey._id }, function () {
+                    $location.url('/');
+                });
+            };
+            $scope.cancel = function () {
+                $location.url('/');
+            };
+        }]);
     app.config(['$routeProvider', function ($routeProvider) {
             $routeProvider
                 .when('/', {
