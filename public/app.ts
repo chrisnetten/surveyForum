@@ -51,9 +51,9 @@
                 $scope.editing[index] = false;
             };
             $scope.edit = function (index) {
-                if ($scope.username == Survey.username) {
+                
                 $scope.editing[index] = angular.copy($scope.survey[index]);
-                }
+                
             };
             $scope.cancel = function (index) {
                 $scope.survey[index] = angular.copy($scope.editing[index]);

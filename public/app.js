@@ -22,7 +22,7 @@
                 $scope.survey = Survey.query(function () {
                     $scope.userSurvey = []; // reset the userTodos array
                     $scope.survey.forEach(function (survey) {
-                        if ($scope.username == Survey.username) {
+                        if (Survey.username == $scope.username) {
                             $scope.button = false;
                         }
                         $scope.userSurvey.push(survey);
@@ -47,9 +47,7 @@
                 $scope.editing[index] = false;
             };
             $scope.edit = function (index) {
-                if ($scope.username == Survey.username) {
-                    $scope.editing[index] = angular.copy($scope.survey[index]);
-                }
+                $scope.editing[index] = angular.copy($scope.survey[index]);
             };
             $scope.cancel = function (index) {
                 $scope.survey[index] = angular.copy($scope.editing[index]);
