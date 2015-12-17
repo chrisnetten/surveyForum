@@ -48,27 +48,49 @@
             </div> <!-- panel panel-default -->
         </script>
 
-   <script type="text/ng-template" id="/surveyDetails.html">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">{{ survey.name }}</h2>
-                </div><!-- panel-heading -->
-                <div class="panel-body">
-                    
-                    <div class="well well-sm">
-                        <h3>Question:</h3>
-                        <p> {{survey.question}}</p>
-                        <br>
-                        <br>
-                    </div><!-- well well-sm -->
-                    <div class="btn-group">
-                        <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
-                    </div> <!-- btn-group -->
+<script type="text/ng-template" id="/surveyDetails.html">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">{{ survey.name }}</h2>
+        </div>
+        <!-- panel-heading -->
+        <div class="panel-body">
 
-                </div> <!-- panel-body -->
-            </div> <!-- panel panel-default -->
+            <div class="well well-sm">
+                <h3>Question:</h3>
+                <p> {{survey.question}}</p>
+                <br>
+                <br>
+            </div>
+            <!-- well well-sm -->
+            <section class="tab">
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href>Description</a></li>
+                    <li>
+                        <a href> Answers </a></li>
+                </ul>
+                <div>
+                    <h4>Description</h4>
+                    <blockquote></blockquote>
+                </div>
+                
+                <div>
+                    <h4>Reviews</h4>
+                    <blockquote></blockquote>
+                </div>
+            </section>
+            <div class="btn-group">
+                <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
+            </div>
+            <!-- btn-group -->
 
-        </script>
+        </div>
+        <!-- panel-body -->
+    </div>
+    <!-- panel panel-default -->
+
+</script>
 
 
 </body>
