@@ -25,7 +25,7 @@
                     $scope.userSurvey = []; // reset the userTodos array
                     $scope.survey.forEach(function (survey) {
                         
-                        if ($scope.username == Survey.username) {
+                        if (Survey.username == $scope.username) {
                             $scope.button = false;
                         }
                             $scope.userSurvey.push(survey);
