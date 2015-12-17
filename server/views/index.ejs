@@ -2,56 +2,55 @@
 
 <body>
 
-
-
-  <main class="jumbotron">
-  <h1>Welcome to our Survey site </h1>
-  
-  <div class="panel panel-default">
-  <div class="panel-heading">
-
-             <% if (username) { %>
- <a href="/add" title="Add Survey"><i class="fa fa-plus-circle"></i> Add A New Survey</a>
-                <% } %>
-              </div>
-              
-               <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Survey Title</th>
-                        <th>User Name</th>
-                        <th>Date Created</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr>
-                
-                <% for(var i = 0; i < survey.length; i++) { %>
-                <td> <%= survey[i].name %> </td>
-                <td> <%= survey[i].username %> </td>
-                 <td> <%= survey[i].created %> </td>
-                 <td> <a href="" title="View" class="btn btn-primary">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a> </td>
-               
-                 
-                 </div>
-                 
-                 
-                 </tr>
-<% } %>
-
- </tbody>
-            </table>
+<div class="container">
+            <ng-view></ng-view>
+        </div> 
         
-        </div>
-        </div>
-  </main>
+<script type="text/ng-template" id="/survey.html">
+            
+            <div class="panel panel-default" ng-init="setUserName('<%= username %>')">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><%= title %></h1>
+                </div> <!-- panel-heading -->
+                <div class="panel-body">
+                    <h4> Surveys of <span class="badge">{{totalSurveys()}}</span> remaining</h4>
+                    <h5>Search Todos:</h5>
+                    <input type="text" ng-model="search.name" id="searchSurvey" placeholder="Survey to find" class="form-control">
+
+                    <ul class="list-group">
+                        <li class="list-group-item active">Current Todos</li>
+                        <li ng-repeat="survey in surveys | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
+                            <div class="btn-group">
+                                <button type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
+
+                            </div> <!-- btn-group -->
+                            <span ng-show="editing[$index]">complete?</span>
+                            <input type="checkbox" ng-model="survey.completed" ng-change="update($index)">
+                            <span class="todos">
+                  <a ng-show="!editing[$index]" href="#/{{todo._id}}" class="completed-{{todo.completed}}">{{todo.name}}</a></span>
+
+                            <input ng-show="editing[$index]" type="text" ng-model="survey.name" class="form-control">
+                            <div class="btn-group">
+                                <button type="button" ng-show="editing[$index]" ng-click="update($index)" class="btn btn-warning">update</button>
+                                <button type="button" ng-show="editing[$index]" ng-click="remove($index)" class="btn btn-danger">remove</button>
+                                <button type="button" ng-show="editing[$index]" ng-click="cancel($index)" class="btn btn-default">cancel</button>
+                            </div> <!-- btn-group -->
+                        </li>
+                    </ul>
+
+                    <h5>New Survey</h5>
+                    <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey" class="form-control">
+                    
+                    <button type="button" ng-click="save()" class="btn btn-primary">Create</button>
+                </div> <!-- panel-body -->
+            </div> <!-- panel panel-default -->
+        </script>
+
+  
 
 
 </body>
 
 <%- include partials/boot.ejs %>
+<%- include partials/nglib.ejs %>
 <%- include partials/footer.ejs %>
