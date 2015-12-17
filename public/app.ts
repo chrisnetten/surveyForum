@@ -62,9 +62,9 @@
             $scope.remainingSurvey = function () {
                 var count = 0;
                 angular.forEach($scope.survey, function (survey) {
-                    if ($scope.username == survey.username) {
+                   
                         count += survey.completed ? 0 : 1;
-                    }
+                    
                 });
                 return count;
             };
