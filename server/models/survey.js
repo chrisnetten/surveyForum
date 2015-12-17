@@ -2,11 +2,9 @@ var mongoose = require('mongoose');
 
 var SurveySchema = new mongoose.Schema ( {
 	name: String,
-	username: String,
-	Question: String,
-	answer: [],
-	updated: {type: Date, default: Date.now},
-	created: {type: Date, default: Date.now}
+	completed: Boolean,
+	note: String,
+	updated: {type: Date, default: Date.now}
 	
 },
 {
