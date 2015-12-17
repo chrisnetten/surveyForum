@@ -4,6 +4,7 @@ var SurveySchema = new mongoose.Schema ( {
 	name: String,
 	completed: Boolean,
 	note: String,
+	question: String,
 	updated: {type: Date, default: Date.now}
 	
 },

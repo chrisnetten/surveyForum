@@ -13,7 +13,7 @@
                     <h1 class="panel-title"><%= title %></h1>
                 </div> <!-- panel-heading -->
                 <div class="panel-body">
-                    <h4> Surveys of <span class="badge">{{totalSurveys()}}</span> remaining</h4>
+                    <h4> Surveys  <span class="badge">{{totalSurveys()}}</span> remaining</h4>
                     <h5>Search Surveys:</h5>
                     <input type="text" ng-model="search.name" id="searchSurvey" placeholder="Survey to find" class="form-control">
 
@@ -40,6 +40,7 @@
                     <% if (username) { %>
                     <h5>New Survey</h5>
                     <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey" class="form-control">
+                    <input type="text" ng-model="newQuestion" id="newQuestion" placeholder="Add a Question" class="form-control">
                     <button type="button" ng-click="save()" class="btn btn-primary">Create</button>
                     <% } %>
                     
