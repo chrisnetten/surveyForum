@@ -15,16 +15,12 @@
     app.controller('SurveyController', ['$scope', 'Survey', function ($scope, Survey) {
             $scope.editing = [];
             $scope.username = '';
-            $scope.button = true;
             $scope.userSurvey = [];
             $scope.setUserName = function (userName) {
                 $scope.username = userName; //get the username
                 $scope.survey = Survey.query(function () {
                     $scope.userSurvey = []; // reset the userTodos array
                     $scope.survey.forEach(function (survey) {
-                        if (Survey.username == $scope.username) {
-                            $scope.button = false;
-                        }
                         $scope.userSurvey.push(survey);
                     });
                     $scope.survey = $scope.userSurvey;
@@ -47,7 +43,9 @@
                 $scope.editing[index] = false;
             };
             $scope.edit = function (index) {
-                $scope.editing[index] = angular.copy($scope.survey[index]);
+                if ($scope.username == Survey.username) {
+                    $scope.editing[index] = angular.copy($scope.survey[index]);
+                }
             };
             $scope.cancel = function (index) {
                 $scope.survey[index] = angular.copy($scope.editing[index]);

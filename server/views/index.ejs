@@ -21,11 +21,10 @@
                         <li class="list-group-item active">Current Surveys</li>
                         <li ng-repeat="survey in survey | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
                             <div class="btn-group">
-                                <button ng-hide="{{button}}" type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
+                                <button  type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
 
                             </div> <!-- btn-group -->
-                            <span ng-show="editing[$index]">complete?</span>
-                            <input type="checkbox" ng-model="survey.completed" ng-change="update($index)">
+                            
                             <span class="survey">
                             <a  ng-show="!editing[$index]" href="#/{{survey._id}}" class="completed-{{survey.completed}}">{{survey.name}}</a></span>
 
