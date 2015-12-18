@@ -82,9 +82,8 @@
             <blockquote></blockquote>
           </div>
           <div ng-show="tab.isSet(2)">
-            <!--  Answer List -->
-            <ul>
               <h4>Answers</h4>
+          <blockquote>
               <li ng-repeat="answer in survey.answer">
                 <blockquote>
                   <strong>{{survey.stats}} Stars</strong>
@@ -123,6 +122,7 @@
             </form>
           </div>
         </section>
+          </blockquote>
         </div>
                 <div class="btn-group">
                     <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
