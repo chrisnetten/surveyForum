@@ -84,44 +84,7 @@
           <div ng-show="tab.isSet(2)">
               <h4>Answers</h4>
           <blockquote>
-              <li ng-repeat="answer in survey.answer">
-                <blockquote>
-                  <strong>{{survey.stats}} Stars</strong>
-                  {{answer.body}}
-                  <cite class="clearfix">—{{answer.author}}</cite>
-                </blockquote>
-              </li>
-            </ul>
-
-            <!--  Answer Form -->
-            <form ng-submit="answerCtrl.addAnswer(survey)"ng-controller="AnswerController as answerCtrl"name="answerForm">
-
-              <!--  Live Preview -->
-              <blockquote>
-                <strong>{{answerCtrl.answer.trueFalse}} True or False</strong>
-                {{answerCtrl.answer.body}}
-                <cite class="clearfix">—{{answerCtrl.answer.author}}</cite>
-              </blockquote>
-
-              <!--  Answer Form -->
-              <h4>Submit a Answer</h4>
-              <fieldset class="form-group">
-                <select ng-model="answerCtrl.answer.trueFalse" class="form-control" ng-options="stars for stars in [True,False]" title="trueFalse">
-                  <option value="">Rate the Product</option>
-                </select>
-              </fieldset>
-              <fieldset class="form-group">
-                <textarea ng-model="answerCtrl.answer.body" class="form-control" placeholder="Write a short answer..." title="Answer"></textarea>
-              </fieldset>
-              <fieldset class="form-group">
-                <input ng-model="answerCtrl.answer.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="submit" class="btn btn-primary pull-right" value="Submit Answer" />
-              </fieldset>
-            </form>
-          </div>
-        </section>
+                <p> test </p>
           </blockquote>
         </div>
                 <div class="btn-group">
