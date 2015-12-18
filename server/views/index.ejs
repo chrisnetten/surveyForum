@@ -68,49 +68,61 @@
                     <br>
                 </div>
                 <!-- well well-sm -->
-                <section ng-controller="TabController as tab" class="tab">
-                    <ul class="nav nav-pills">
-                        <li ng-class="{active: tab.isSet(1)}">
-                            <a ng-click="tab.setTab(1)" href>Stats</a></li>
-                        <li ng-class="{active: tab.isSet(2)}">
-                            <a ng-click="tab.setTab(2)" href>Answers</a></li>
-                    </ul>
-                    <div ng-show="tab.isSet(1)">
-                        <h4>Stats</h4>
-                        <blockquote></blockquote>
-                    </div>
-                    <div ng-show="tab.isSet(2)">
-                        <ul>
-                            <h4>User Answers</h4>
-                            <li ng-repeat="answer in product.answer">
-                                <blockquote>
-                                    <strong>{{answer.answer}} Stars</strong> {{answer.body}}
-                                    <cite class="clearfix">-{{answer.author}}</cite>
-                                
-                            </li>
-                        </ul>
-                        <form ng-submit="answerCtrl.addAnswer(survey)"ng-controller="AnswerController as answerCtrl"name="answerForm">
-                        
-                            <h4>Submit a Answer</h4>
-                            <fieldset class="form-group">
-                                <select class="form-control" ng-options="answer for answer in [True,False]" title="Answer">
-                                    <option value="">Answer</option>
-                                </select>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <textarea class="form-control" placeholder="Write a short answer for the question..." title="ShortAnswer"></textarea>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input type="email" class="form-control" placeholder="....@example.org" title="Email" />
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input type="submit" class="btn btn-primary pull-right" value="Submit Answer" />
-                            </fieldset>
-                            </form>
-                       
-                    </div>
-                </section>
+                  <section ng-controller="TabController as tab">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href="" ng-click="tab.setTab(1)">Stats</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(3) }">
+              <a href="" ng-click="tab.setTab(2)">Answer</a>
+            </li>
+          </ul>
+          <div ng-show="tab.isSet(1)">
+            <h4>Description</h4>
+            <blockquote></blockquote>
+          </div>
+          <div ng-show="tab.isSet(2)">
+            <!--  Answer List -->
+            <ul>
+              <h4>Answers</h4>
+              <li ng-repeat="answer in survey.answer">
+                <blockquote>
+                  <strong>{{survey.stats}} Stars</strong>
+                  {{answer.body}}
+                  <cite class="clearfix">—{{answer.author}}</cite>
                 </blockquote>
+              </li>
+            </ul>
+
+            <!--  Answer Form -->
+            <form ng-submit="answerCtrl.addAnswer(survey)"ng-controller="AnswerController as answerCtrl"name="answerForm">
+
+              <!--  Live Preview -->
+              <blockquote>
+                <strong>{{answerCtrl.answer.trueFalse}} True or False</strong>
+                {{answerCtrl.answer.body}}
+                <cite class="clearfix">—{{answerCtrl.answer.author}}</cite>
+              </blockquote>
+
+              <!--  Answer Form -->
+              <h4>Submit a Answer</h4>
+              <fieldset class="form-group">
+                <select ng-model="answerCtrl.answer.trueFalse" class="form-control" ng-options="stars for stars in [True,False]" title="trueFalse">
+                  <option value="">Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea ng-model="answerCtrl.answer.body" class="form-control" placeholder="Write a short answer..." title="Answer"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input ng-model="answerCtrl.answer.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Answer" />
+              </fieldset>
+            </form>
+          </div>
+        </section>
                 <div class="btn-group">
                     <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
                 </div>
