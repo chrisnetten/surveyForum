@@ -86,7 +86,7 @@
                                 <blockquote>
                                     <strong>{{answer.answer}} Stars</strong> {{answer.body}}
                                     <cite class="clearfix">-{{answer.author}}</cite>
-                                </blockquote>
+                                
                             </li>
                         </ul>
                         <form ng-submit="answerCtrl.addAnswer(survey)"ng-controller="AnswerController as answerCtrl"name="answerForm">
@@ -110,6 +110,7 @@
                        
                     </div>
                 </section>
+                </blockquote>
                 <div class="btn-group">
                     <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
                 </div>
