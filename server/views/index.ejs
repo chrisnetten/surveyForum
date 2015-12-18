@@ -86,15 +86,6 @@
           <blockquote>
                 <!--  Answer Form -->
             <form ng-submit="answerCtrl.addAnswer(survey)"ng-controller="AnswerController as answerCtrl"name="answerForm">
-
-              <!--  Live Preview -->
-              <blockquote>
-                <strong>{{answerCtrl.answer.trueFalse}} True or False?</strong>
-                {{answerCtrl.answer.body}}
-                <cite class="clearfix">—{{answerCtrl.answer.author}}</cite>
-              </blockquote>
-
-              <!--  Answer Form -->
               <h4>Submit a Answer</h4>
               <fieldset class="form-group">
                 <select ng-model="answerCtrl.answer.trueFalse" class="form-control" ng-options="trueFalse for trueFalse in [true, false]" title="TrueFalse">
