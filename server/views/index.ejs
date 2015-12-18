@@ -2,99 +2,125 @@
 
 <body>
 
-<div class="container">
-            <ng-view></ng-view>
-        </div> 
-        
-<script type="text/ng-template" id="/survey.html">
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
 
-    <div class="panel panel-default" ng-init="setUserName('<%= username %>')">
-        <div class="panel-heading">
-            <h1 class="panel-title"><%= title %></h1>
-        </div>
-        <!-- panel-heading -->
-        <div class="panel-body">
-            <h4> Surveys  <span class="badge">{{totalSurveys()}}</span> remaining</h4>
-            <h5>Search Surveys:</h5>
-            <input type="text" ng-model="search.name" id="searchSurvey" placeholder="Survey to find" class="form-control">
+    <script type="text/ng-template" id="/survey.html">
 
-            <ul class="list-group">
-                <li class="list-group-item active">Current Surveys</li>
-                <li ng-repeat="survey in survey | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
-                    <div class="btn-group">
-                        <button type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
+        <div class="panel panel-default" ng-init="setUserName('<%= username %>')">
+            <div class="panel-heading">
+                <h1 class="panel-title"><%= title %></h1>
+            </div>
+            <!-- panel-heading -->
+            <div class="panel-body">
+                <h4> Surveys  <span class="badge">{{totalSurveys()}}</span> remaining</h4>
+                <h5>Search Surveys:</h5>
+                <input type="text" ng-model="search.name" id="searchSurvey" placeholder="Survey to find" class="form-control">
 
-                    </div>
-                    <!-- btn-group -->
+                <ul class="list-group">
+                    <li class="list-group-item active">Current Surveys</li>
+                    <li ng-repeat="survey in survey | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
+                        <div class="btn-group">
+                            <button type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
 
-                    <span class="survey">
+                        </div>
+                        <!-- btn-group -->
+
+                        <span class="survey">
                             <a  ng-show="!editing[$index]" href="#/{{survey._id}}" class="completed-{{survey.completed}}">{{survey.name}}</a></span>
 
-                    <input ng-show="editing[$index]" type="text" ng-model="survey.name" class="form-control">
-                    <div class="btn-group">
-                        <button type="button" ng-show="editing[$index]" ng-click="update($index)" class="btn btn-warning">update</button>
-                        <button type="button" ng-show="editing[$index]" ng-click="remove($index)" class="btn btn-danger">remove</button>
-                        <button type="button" ng-show="editing[$index]" ng-click="cancel($index)" class="btn btn-default">cancel</button>
-                    </div>
-                    <!-- btn-group -->
-                </li>
-            </ul>
-            <% if (username) { %>
-                <h5>New Survey</h5>
-                <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey" class="form-control">
-                <input type="text" ng-model="newQuestion" id="newQuestion" placeholder="Add a Question" class="form-control">
-                <button type="button" ng-click="save()" class="btn btn-primary">Create</button>
-                <% } %>
-
-
-        </div>
-        <!-- panel-body -->
-    </div>
-    <!-- panel panel-default -->
-</script>
-
-<script type="text/ng-template" id="/surveyDetails.html">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2 class="panel-title">{{ survey.name }}</h2>
-        </div>
-        <!-- panel-heading -->
-        <div class="panel-body">
-
-            <div class="well well-sm">
-                <h3>Question:</h3>
-                <p> {{survey.question}}</p>
-                <br>
-                <br>
-            </div>
-            <!-- well well-sm -->
-            <section ng-controller="TabController as tab" class="tab">
-                <ul class="nav nav-pills">
-                    <li ng-class="{active: tab.isSet(1)}">
-                        <a ng-click="tab.setTab(1)" href>Stats</a></li>
-                    <li ng-class="{active: tab.isSet(2)}">
-                        <a ng-click="tab.setTab(2)" href>Answers</a></li>
+                        <input ng-show="editing[$index]" type="text" ng-model="survey.name" class="form-control">
+                        <div class="btn-group">
+                            <button type="button" ng-show="editing[$index]" ng-click="update($index)" class="btn btn-warning">update</button>
+                            <button type="button" ng-show="editing[$index]" ng-click="remove($index)" class="btn btn-danger">remove</button>
+                            <button type="button" ng-show="editing[$index]" ng-click="cancel($index)" class="btn btn-default">cancel</button>
+                        </div>
+                        <!-- btn-group -->
+                    </li>
                 </ul>
-                <div ng-show="tab.isSet(1)">
-                    <h4>Stats</h4>
-                    <blockquote></blockquote>
-                </div>
-                <div ng-show="tab.isSet(2)">
-                    <h4>Answers</h4>
-                    <blockquote></blockquote>
-                </div>
-            </section>
-            <div class="btn-group">
-                <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
+                <% if (username) { %>
+                    <h5>New Survey</h5>
+                    <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey" class="form-control">
+                    <input type="text" ng-model="newQuestion" id="newQuestion" placeholder="Add a Question" class="form-control">
+                    <button type="button" ng-click="save()" class="btn btn-primary">Create</button>
+                    <% } %>
+
+
             </div>
-            <!-- btn-group -->
-
+            <!-- panel-body -->
         </div>
-        <!-- panel-body -->
-    </div>
-    <!-- panel panel-default -->
+        <!-- panel panel-default -->
+    </script>
 
-</script>
+    <script type="text/ng-template" id="/surveyDetails.html">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">{{ survey.name }}</h2>
+            </div>
+            <!-- panel-heading -->
+            <div class="panel-body">
+
+                <div class="well well-sm">
+                    <h3>Question:</h3>
+                    <p> {{survey.question}}</p>
+                    <br>
+                    <br>
+                </div>
+                <!-- well well-sm -->
+                <section ng-controller="TabController as tab" class="tab">
+                    <ul class="nav nav-pills">
+                        <li ng-class="{active: tab.isSet(1)}">
+                            <a ng-click="tab.setTab(1)" href>Stats</a></li>
+                        <li ng-class="{active: tab.isSet(2)}">
+                            <a ng-click="tab.setTab(2)" href>Answers</a></li>
+                    </ul>
+                    <div ng-show="tab.isSet(1)">
+                        <h4>Stats</h4>
+                        <blockquote></blockquote>
+                    </div>
+                    <div ng-show="tab.isSet(2)">
+                        <ul>
+                            <h4>User Answers</h4>
+                            <li ng-repeat="answer in product.answer">
+                                <blockquote>
+                                    <strong>{{answer.answer}} Stars</strong> {{answer.body}}
+                                    <cite class="clearfix">-{{answer.author}}</cite>
+                                </blockquote>
+                            </li>
+                        </ul>
+                        <form ng-submit="answerCtrl.addAnswer(survey)"ng-controller="AnswerController as answerCtrl"name="answerForm">
+                        
+                            <h4>Submit a Answer</h4>
+                            <fieldset class="form-group">
+                                <select class="form-control" ng-options="answer for answer in [True,False]" title="Answer">
+                                    <option value="">Answer</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <textarea class="form-control" placeholder="Write a short answer for the question..." title="ShortAnswer"></textarea>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control" placeholder="....@example.org" title="Email" />
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="submit" class="btn btn-primary pull-right" value="Submit Answer" />
+                            </fieldset>
+                            </form>
+                       
+                    </div>
+                </section>
+                <div class="btn-group">
+                    <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
+                </div>
+                <!-- btn-group -->
+
+            </div>
+            <!-- panel-body -->
+        </div>
+        <!-- panel panel-default -->
+
+    </script>
 
 
 </body>

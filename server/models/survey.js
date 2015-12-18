@@ -6,7 +6,8 @@ var SurveySchema = new mongoose.Schema ( {
 	username: String,
 	note: String,
 	question: String,
-	updated: {type: Date, default: Date.now}
+	updated: {type: Date, default: Date.now},
+	answer: []
 	
 },
 {

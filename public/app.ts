@@ -76,17 +76,25 @@
             };
         }]);
          
-         
+     app.controller('AnswerController', function(survey) {
+         this.answer = {};
+
+         this.addAnswer = function(product) {
+             survey.answer.push(this.survey);
+             this.answer = {};
+         };
+     });
+
      app.controller('TabController', function() {
          this.tab = 1;
 
          this.setTab = function(newValue) {
              this.tab = newValue;
          }
-         
-         this.isSet = function(tabName){
-      return this.tab === tabName;
-    };
+
+         this.isSet = function(tabName) {
+             return this.tab === tabName;
+         };
          
      });
          

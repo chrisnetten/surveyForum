@@ -64,6 +64,13 @@
                 return count;
             };
         }]);
+    app.controller('AnswerController', function (survey) {
+        this.answer = {};
+        this.addAnswer = function (product) {
+            survey.answer.push(this.survey);
+            this.answer = {};
+        };
+    });
     app.controller('TabController', function () {
         this.tab = 1;
         this.setTab = function (newValue) {
