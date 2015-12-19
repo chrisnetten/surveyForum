@@ -107,6 +107,10 @@
                 .when('/:id', {
                 templateUrl: '/surveyDetails.html',
                 controller: 'SurveyDetailCtrl',
+            })
+                .when('/userSurvey', {
+                templateUrl: '/userSurvey.html',
+                controller: 'SurveyController',
             });
         }]);
 })();
