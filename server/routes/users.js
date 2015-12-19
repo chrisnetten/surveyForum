@@ -100,7 +100,6 @@ router.get('/userSurvey', requireAuth, function(req, res, next) {
         username: req.user ? req.user.username : '',
         email: req.user? req.user.email : '',
         created: req.user? req.user.created : '',
-        _id: req.user? req.user._id : ''
       });
     }
   });
