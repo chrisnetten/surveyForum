@@ -22,7 +22,7 @@
                     <li class="list-group-item active">Current Surveys</li>
                     <li ng-repeat="survey in survey | filter: search | filter: {username: '<%= username %>'}" class="list-group-item">
                         <div class="btn-group">
-                        <% if(username = username ) { %>
+                        <% if({{survey.username}} = username ) { %>
                             <button type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
                          <% } %>
                         </div>
