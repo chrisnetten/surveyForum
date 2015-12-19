@@ -85,27 +85,7 @@ router.post('/:id', requireAuth, function(req, res, next) {
 
 
 
-router.get('/userSurvey', requireAuth, function(req, res, next) {
-  User.find(function(err, users) {
-     Survey.find(function(err, survey) {
-    if(err) {
-      console.log(err);
-      res.end(err);
-    }
-    else {
-      res.render('users/userSurvey', {
-        title: 'UserSurvey',
-        users : users,
-        survey: survey,
-        displayName: req.user ? req.user.displayName : '',
-        username: req.user ? req.user.username : '',
-        email: req.user? req.user.email : '',
-        created: req.user? req.user.created : '',
-      });
-    }
-  });
-});
-});
+
 
 
 
