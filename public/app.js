@@ -27,14 +27,15 @@
                 });
             };
             $scope.save = function () {
-                if (!$scope.newSurvey, !$scope.newQuestion || $scope.newSurvey.length < 1, $scope.newQuestion.length < 1) {
+                if (!$scope.newSurvey, !$scope.newQuestion, !$scope.newDescription || $scope.newSurvey.length < 1, $scope.newQuestion.length < 1, $scope.newDescription.length < 1) {
                     return;
                 }
-                var survey = new Survey({ name: $scope.newSurvey, question: $scope.newQuestion, username: $scope.username, completed: false });
+                var survey = new Survey({ name: $scope.newSurvey, question: $scope.newQuestion, description: $scope.newDescription, username: $scope.username, completed: false });
                 survey.$save(function () {
                     $scope.survey.push(survey);
                     $scope.newSurvey = '';
                     $scope.newQuestion = ''; // clear textbox
+                    $scope.newDescription = '';
                 });
             };
             $scope.update = function (index) {

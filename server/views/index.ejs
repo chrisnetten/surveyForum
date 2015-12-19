@@ -41,8 +41,9 @@
                 </ul>
                 <% if (username) { %>
                     <h5>New Survey</h5>
-                    <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey" class="form-control">
+                    <input type="text" ng-model="newSurvey" id="newSurvey" placeholder="Add a new Survey Name" class="form-control">
                     <input type="text" ng-model="newQuestion" id="newQuestion" placeholder="Add a Question" class="form-control">
+                    <input type="text" ng-model="newDescription" id="newDescription" placeholder="Add a Survey Description" class="form-control">
                     <button type="button" ng-click="save()" class="btn btn-primary">Create</button>
                     <% } %>
 
@@ -79,7 +80,7 @@
           </ul>
           <div ng-show="tab.isSet(1)">
             <h4>Description</h4>
-            <blockquote></blockquote>
+            <blockquote>{{survey.description}}</blockquote>
           </div>
           <div ng-show="tab.isSet(2)">
               <h4>Answers</h4>
