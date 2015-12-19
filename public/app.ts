@@ -133,6 +133,10 @@
                 templateUrl: '/surveyDetails.html',
                 controller: 'SurveyDetailCtrl' ,
                 
+            })
+            .when('users/userSurvey', {
+                templateUrl: '/userSurvey.html',
+                controller: 'SurveyController' ,
             });
         }]);
 })();
