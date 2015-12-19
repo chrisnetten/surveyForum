@@ -82,14 +82,15 @@
         
 
          
-     app.controller('AnswerController', function(survey) {
+     app.controller('AnswerController', [ '$scope', function(survey, $scope) {
          this.answer = {};
-
-         this.addAnswer = function(product) {
+         $scope.items = ['True','False']
+         
+         this.addAnswer = function(survey) {
              survey.answer.push(this.survey);
              this.answer = {};
          };
-     });
+     }]);
 
      app.controller('TabController', function() {
          this.tab = 1;

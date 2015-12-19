@@ -82,18 +82,18 @@
               <h4>Answers</h4>
           <blockquote>
                 <!--  Answer Form -->
-            <form name="answerForm">
+            <form ng-controller="AnswerController as answer" name="answerForm">
               <h4>Submit a Answer</h4>
               <fieldset class="form-group">
                 <select  class="form-control"  title="TrueFalse" >
-                  <option value="">Answer the Question</option>
+                  <option ng-repeat="item in items" value="{{item}}">{{item}}</option>
                 </select>
               </fieldset>
               <fieldset class="form-group">
                 <textarea  class="form-control" placeholder="Write a short answer for the question..." title="Answer"></textarea>
               </fieldset>
               <fieldset class="form-group">
-                <input type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+                <input type="email" class="form-control" placeholder="example@example.org" title="Email" />
               </fieldset>
               <fieldset class="form-group">
                 <input type="submit" class="btn btn-primary pull-right" value="Submit Answer" />
