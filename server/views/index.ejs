@@ -85,10 +85,10 @@
               <h4>Answers</h4>
           <blockquote>
                 <!--  Answer Form -->
-            <form name="answerForm" ng-controller="AnswerController as answerCTRL">
+            <form name="answerForm">
               <h4>Submit a Answer</h4>
               <fieldset class="form-group">
-                <select ng-model="answerCTRL.answer.trueFalse" ng-options="trueFalse for trueFalse in ['true','false']"  class="form-control"  title="TrueFalse">
+                <select  class="form-control"  title="TrueFalse" >
                   <option value="">Answer the Question</option>
                 </select>
               </fieldset>
