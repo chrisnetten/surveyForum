@@ -3,6 +3,10 @@
 	<body>
 
 		<h1> test </h1>
+                
+                   <div class="container">
+        <ng-view></ng-view>
+    </div>
 
 		<script type="text/ng-template" id="/userSurvey.html">
 			<div class="panel panel-default" ng-init="setUserName('<%= username %>')">
