@@ -13,11 +13,7 @@
                 'update': { method: 'PUT' }
             });
         }]);
-        app.factory('userSurvey', ['$resource', function ($resource) {
-            return $resource('/userSurvey/:id',null, {
-                'update': { method: 'PUT' }
-            });
-        }]);
+
     
      app.controller('SurveyController', ['$scope', 'Survey', function ($scope, Survey) {
             $scope.editing = [];
@@ -82,7 +78,7 @@
             };
         }]);
         
-        app.controller('UserSurveyController', ['$scope', 'userSurvey', function ($scope, Survey) {
+         app.controller('UserSurveyController', ['$scope', 'Survey', function ($scope, Survey) {
             $scope.editing = [];
             $scope.username = '';
          
@@ -144,6 +140,8 @@
                 return count;
             };
         }]);
+        
+
          
      app.controller('AnswerController', function(survey) {
          this.answer = {};
