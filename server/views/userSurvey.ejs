@@ -2,25 +2,24 @@
 
 <body>
 
+    <h1> test </h1>
+
     <div class="container">
         <ng-view></ng-view>
     </div>
 
     <script type="text/ng-template" id="/userSurvey.html">
-
         <div class="panel panel-default" ng-init="setUserName('<%= username %>')">
-            <div class="panel-heading">
-                <h1 class="panel-title"><%= title %></h1>
-            </div>
+
             <!-- panel-heading -->
             <div class="panel-body">
-                <h4> Surveys  <span class="badge">{{totalSurveys()}}</span> remaining</h4>
-                <h5>Search Surveys:</h5>
-                <input type="text" ng-model="search.name" id="searchSurvey" placeholder="Survey to find" class="form-control">
-
                 <ul class="list-group">
-                    <li class="list-group-item active">Current Surveys</li>
-                    <li ng-repeat="survey in survey | filter: search " class="list-group-item">
+                    <li class="list-group-item active">Your Surveys</li>
+                    <li ng-repeat="survey in survey | filter: search | filter: {username: '<%= username %>" class="list-group-item">
+                        <div class="btn-group">
+                            - -
+                            <button type="button" ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default "><i class="fa fa-edit"></i></button>
+                            - - </div>
                         <!-- btn-group -->
 
                         <span class="survey">
@@ -48,75 +47,11 @@
             <!-- panel-body -->
         </div>
         <!-- panel panel-default -->
-    </script>
-
-    <script type="text/ng-template" id="/surveyDetails.html">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">{{ survey.name }}</h2>
-            </div>
-            <!-- panel-heading -->
-            <div class="panel-body">
-
-                <div class="well well-sm">
-                    <h3>Question:</h3>
-                    <p> {{survey.question}}</p>
-                    <br>
-                    <br>
-                </div>
-                <!-- well well-sm -->
-                  <section ng-controller="TabController as tab">
-          <ul class="nav nav-pills">
-            <li ng-class="{ active:tab.isSet(1) }">
-              <a href="" ng-click="tab.setTab(1)">Stats</a>
-            </li>
-            <li ng-class="{ active:tab.isSet(2) }">
-              <a href="" ng-click="tab.setTab(2)">Answer</a>
-            </li>
-          </ul>
-          <div ng-show="tab.isSet(1)">
-            <h4>Description</h4>
-            <blockquote>{{survey.description}}</blockquote>
-          </div>
-          <div ng-show="tab.isSet(2)">
-              <h4>Answers</h4>
-          <blockquote>
-                <!--  Answer Form -->
-            <form name="answerForm">
-              <h4>Submit a Answer</h4>
-              <fieldset class="form-group">
-                <select  class="form-control"  title="TrueFalse" >
-                  <option value="">Answer the Question</option>
-                </select>
-              </fieldset>
-              <fieldset class="form-group">
-                <textarea  class="form-control" placeholder="Write a short answer for the question..." title="Answer"></textarea>
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="submit" class="btn btn-primary pull-right" value="Submit Answer" />
-              </fieldset>
-            </form>
-          </blockquote>
-        </div>
-        </section>
-                <div class="btn-group">
-                    <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
-                </div>
-                <!-- btn-group -->
-
-            </div>
-            <!-- panel-body -->
-        </div>
-        <!-- panel panel-default -->
 
     </script>
 
 
 </body>
-
-<%- include partials/boot.ejs %>
+	<%- include partials/boot.ejs %>
 <%- include partials/nglib.ejs %>
 <%- include partials/footer.ejs %>

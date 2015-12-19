@@ -8,7 +8,7 @@
         angular.bootstrap(document, [mainModuleName]);
     });
     app.factory('Survey', ['$resource', function ($resource) {
-            return $resource('/survey/:id', null, {
+            return $resource('/survey/:id', '/userSurvey/:id', null, {
                 'update': { method: 'PUT' }
             });
         }]);
