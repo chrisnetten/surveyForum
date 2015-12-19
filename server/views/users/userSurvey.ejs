@@ -1,5 +1,10 @@
 <%- include ./partials/header.ejs %>
 
+<body>
+
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
 
 <script type="text/ng-template" id="/survey.html">
 
@@ -45,6 +50,7 @@
 
 </script>
 
+</body>
 <%- include partials/boot.ejs %>
 <%- include partials/nglib.ejs %>
 <%- include partials/footer.ejs %>
