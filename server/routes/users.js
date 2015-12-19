@@ -87,7 +87,7 @@ router.post('/:id', requireAuth, function(req, res, next) {
 
 router.get('/userSurvey', requireAuth, function(req, res, next) {
   User.find(function(err, users) {
-    
+     Survey.find(function(err, survey) {
     if(err) {
       console.log(err);
       res.end(err);
@@ -104,6 +104,7 @@ router.get('/userSurvey', requireAuth, function(req, res, next) {
       });
     }
   });
+});
 });
 
 
