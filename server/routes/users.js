@@ -96,6 +96,7 @@ router.get('/userSurvey', requireAuth, function(req, res, next) {
       res.render('users/userSurvey', {
         title: 'UserSurvey',
         users : users,
+        survey: survey,
         displayName: req.user ? req.user.displayName : '',
         username: req.user ? req.user.username : '',
         email: req.user? req.user.email : '',
