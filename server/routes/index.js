@@ -122,7 +122,7 @@ router.get('/userSurvey', requireAuth, function(req, res, next) {
       res.end(err);
     }
     else {
-      res.render('/userSurvey', {
+      res.render('userSurvey', {
         title: 'UserSurvey',
         users : users,
         survey: survey,
