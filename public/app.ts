@@ -140,7 +140,7 @@
                 
             })
                 .when('/userSurvey', {
-                templateUrl: '/userSurvey.html',
+                templateUrl: '/usersurvey.html',
                 controller: 'SurveyController' ,
             });
         }]);
