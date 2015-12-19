@@ -142,6 +142,6 @@
                 .when('/userSurvey', {
                 templateUrl: '/usersurvey.html',
                 controller: 'SurveyController' ,
-            });
+            })
         }]);
 })();
