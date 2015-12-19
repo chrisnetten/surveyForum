@@ -134,7 +134,7 @@
                 controller: 'SurveyDetailCtrl' ,
                 
             })
-            .when('users/userSurvey', {
+            .when('/userSurvey', {
                 templateUrl: '/userSurvey.html',
                 controller: 'SurveyController' ,
             });
